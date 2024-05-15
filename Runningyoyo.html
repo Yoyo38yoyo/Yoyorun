@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YoyoRunning</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://img.freepik.com/photos-premium/silhouette-jeune-femme-faisant-du-jogging-sous-plage-au-coucher-du-soleil_957197-4.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+        }
+        p {
+            line-height: 1.6;
+        }
+        footer {
+            display: none; /* Suppression du bandeau de bas de page */
+        }
+        .plan {
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .plan h3 {
+            margin-top: 0;
+        }
+        .plan p {
+            margin: 0;
+        }
+        img {
+            width: 100%;
+            max-width: 800px;
+            display: block;
+            margin: 20px auto;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>YoyoRunning</h1>
+    </header>
+    <div class="container">
+        <!-- Contenu de la page -->
+        <h2>Bienvenue sur ma page dédiée à la course à pied !</h2>
+        <!-- Le reste du contenu reste inchangé -->
+        <h3>Sélectionnez un plan d'entraînement :</h3>
+        <select id="planEntrainement" style="padding: 10px; font-size: 16px; border: 2px solid #3498db; border-radius: 5px; background-color: #f2f2f2; color: #3498db; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);">
+            <option value="semi-marathon-lyon">🏃 Semi-Marathon Lyon</option>
+            <option value="13km-gresi-courant">🏃 13 km Grési Courant</option>
+        </select>
+        <button onclick="afficherPlan()" style="padding: 10px 20px; font-size: 16px; background-color: #3498db; color: #fff; border: none; border-radius: 5px; cursor: pointer; transition: background-color 0.3s;">Afficher le plan</button>
+
+        <div id="affichagePlan" style="display: none;">
+            <!-- L'affichage du plan d'entraînement sélectionné apparaîtra ici -->
+        </div>
+    </div>
+    <script>
+        function afficherPlan() {
+            var select = document.getElementById("planEntrainement");
+            var planSelectionne = select.options[select.selectedIndex].value;
+            var affichagePlan = document.getElementById("affichagePlan");
+
+            switch (planSelectionne) {
+                case "13km-gresi-courant":
+                    affichagePlan.innerHTML = `
+                    <div class="plan">
+                        <h3>Plan d'entraînement pour 13 km Grési Courant - 5 semaines</h3>
+                        <p>La course : Gresi’courant 13 Km, pas de dénivelé (aérodrome du versoud - 2 juin - départ 9h40)</p>
+                        <p><strong>Endurance fondamentale :</strong> Courir à une allure où l’on est en aisance respiratoire, sans essoufflement. Cette notion va revenir dans de nombreux entraînements type footing, il a été démontré que courir à très faible intensité est le meilleur moyen pour augmenter sa VO2max (quantité max d’oxygène dans les poumons) et donc progresser sur son cardio et ses performances sur les sports d'endurance. Concrètement courir à allure fondamentale c’est courir sans utiliser la bouche et en respirant uniquement par le nez. Le plus important sur les séances qui incluent de l’allure endurance fondamentale est de ne pas se “cramer”, rester raisonnable pour garder l'énergie nécessaire sur les séances de fractionnées et/ou sorties longues. Pour la prépa on retiendra que allure endurance fondamentale = ne pas aller plus vite que 6’00 min/Km = 10 Km/h</p>
+                        <p><strong>AS grési’courant :</strong> Allure spécifique grési’courant, c’est l’allure visée le jour J ! Allure = 5.35 min/km = 10.75 Km/h.</p>
+                        <h4>Semaine 1</h4>
+                        <p><strong>SÉANCE 1 - FOOTING :</strong> Footing de 45 minutes en endurance fondamentale </p>
+                        <p><strong>SÉANCE 2 - FOOTING :</strong> Footing de 45 minutes en endurance fondamentale</p>
+                        <p><strong>SÉANCE 3 - SORTIE LONGUE :</strong> Footing de 20 minutes en endurance fondamentale suivi de 3 fois 8 minutes à 85% VMA = 5.40 min/km avec une récupération de 2 minutes entre chaque effort. Finir la sortie longue en footing lent.</p>
+                        <h4>Semaine 2</h4>
+                        <p><strong>SÉANCE 1 - FOOTING :</strong> Footing de 1 heure en endurance fondamentale</p>
+                        <p><strong>SÉANCE 2 - FOOTING :</strong> Footing de 20 minutes en endurance fondamentale suivi de 4 fois 1500m à allure spécifique gresi’courant = 5.35 min/KM avec une récupération de 2 minutes entre chaque effort. Finir la séance par 5 minutes de footing lent.</p>
+                        <p><strong>SÉANCE 3 - SORTIE LONGUE :</strong> Footing de 40 minutes en endurance fondamentale suivi de 2 fois 10 minutes à 85% VMA = 5.40 min/km avec une récupération de 2 minutes entre chaque effort. Finir la sortie longue en footing lent.</p>
+                        <h4>Semaine 3</h4>
+                        <p><strong>SÉANCE 1 - VMA :</strong> Footing de 20 minutes en endurance fondamentale suivi de 2 séries de 4 fois 500m à 95%VMA = 5.15 min/Km avec une récupération de 1 minutes 30 entre les 500m et 3 minutes entre chaque série. Finir la séance par 5 minutes de footing lent.</p>
+                        <p><strong>SÉANCE 2 - FOOTING :</strong> Footing de 1 heure en endurance fondamentale</p>
+                        <p><strong>SÉANCE 3 - AS Grési’courant :</strong> Footing de 15 minutes en endurance fondamentale suivi de 3 fois 2000m à allure spécifique Grési’courant = 5.35min/Km avec une récupération de 2 minutes entre chaque effort. Finir la séance par 5 minutes de footing lent.</p>
+                        <h4>Semaine 4</h4>
+                        <p><strong>SÉANCE 1 - SORTIE LONGUE 1H :</strong> Sortie de longue de 1h en endurance fondamentale</p>
+                        <p><strong>SÉANCE 2 - VMA :</strong> Footing de 20 minutes en endurance fondamentale suivi de 2 séries de 4 fois 300m à 100%VMA = 5.15 min/Km avec une récupération de 45 secondes entre les 300m et 3 minutes entre chaque série. Finir la séance par 5 min de footing lent.</p>
+                        <p><strong>SÉANCE 3 - AS Grési’courant :</strong> Footing de 15 minutes en endurance fondamentale, suivi de 3000m puis 2000m à allure spécifique grési’courant = 5.35 min/Km avec une récupération de 2 minutes entre chaque effort. Finir la séance par footing lent.</p>
+                        <h4>Semaine 5</h4>
+                        <p><strong>SÉANCE 1 - FOOTING :</strong> Footing de 50 minutes en endurance fondamentale </p>
+                        <p><strong>SÉANCE 2 - FOOTING :</strong> Footing de 30 minutes en endurance fondamentale </p>
+                        <p><strong>SÉANCE 3 - COMPÉTITION !</strong></p>
+                        <p>Gresicourant 13 Km ! Objectif allure : 5.35 min/Km</p>
+                        <p><strong>Tableau récap des séances :</strong> <a href="https://drive.google.com/uc?id=1NCKGXgbOQQ07vbzoouEEM6uRhPAwhB1H">ici</a></p>
+                    </div>
+                    `;
+                    break;
+                case "semi-marathon-lyon":
+                    affichagePlan.innerHTML = `
+                    <div class="plan">
+                        <h3>Plan d'entraînement pour Semi-Marathon de Lyon - 10 semaines</h3>
+                        <p>La course : Semi-Marathon de Lyon, un parcours urbain traversant la ville historique, le parc de la Tête d'Or et le quartier de la Confluence.</p>
+                        <!-- Ajout de l'image du Semi-Marathon de Lyon -->
+                        <img src="https://www.jds.fr/medias/image/run-in-lyon-6-326352-920-0-F.webp" alt="Semi-Marathon de Lyon">
+                    </div>
+                    `;
+                    break;
+                // Ajoutez les cas pour les autres plans d'entraînement ici
+            }
+
+            affichagePlan.style.display = "block";
+        }
+    </script>
+</body>
+</html>
